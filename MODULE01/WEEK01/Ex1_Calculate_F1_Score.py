@@ -1,19 +1,21 @@
 """## 1. Viết function thực hiện đánh giá classification model bằng F1-Score."""
 # f1 score is the evaluation metric that is used to evaluate the performance of the machine learning model
-def Calculate_F1_Score(TruePositive,FalsePositive,FalseNegative):
-    #validate type parameters
-    if not isinstance(TruePositive, int) or not isinstance(FalsePositive, int) or not isinstance(FalseNegative, int):
+
+
+def calculate_f1_score(truepositive, falsepositive, falsenegative):
+    # validate type parameters
+    if not isinstance(truepositive, int) or not isinstance(falsepositive, int) or not isinstance(falsenegative, int):
         print("Input parameters must be integer")
         return None
 
-    #validate input parameters
-    if TruePositive < 0 or FalsePositive < 0 or FalseNegative < 0:
+    # validate input parameters
+    if truepositive < 0 or falsepositive < 0 or falsenegative < 0:
         print("Input parameters must be greater than zero")
         return None
 
-    #calculate F1-Score
-    precision = TruePositive / (TruePositive + FalsePositive)
-    recall = TruePositive / (TruePositive + FalseNegative)
+    # calculate F1-Score
+    precision = truepositive / (truepositive + falsepositive)
+    recall = truepositive / (truepositive + falsenegative)
     f1_score = 2 * (precision * recall) / (precision + recall)
 
     # Print result
@@ -23,9 +25,9 @@ def Calculate_F1_Score(TruePositive,FalsePositive,FalseNegative):
 
 
 # Examples
-Calculate_F1_Score (2, 3, 4)
-Calculate_F1_Score ('a', 3, 4)
-Calculate_F1_Score (2, 'a', 4)
-Calculate_F1_Score (2, 3, 'a')
-Calculate_F1_Score (2, 3, 0)
-Calculate_F1_Score (2.1 ,3 , 0)
+calculate_f1_score(2, 3, 4)
+calculate_f1_score('a', 3, 4)
+calculate_f1_score(2, 'a', 4)
+calculate_f1_score(2, 3, 'a')
+calculate_f1_score(2, 3, 0)
+calculate_f1_score(2.1, 3, 0)
