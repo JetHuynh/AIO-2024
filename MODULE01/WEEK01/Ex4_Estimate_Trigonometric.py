@@ -2,8 +2,10 @@
 import math
 
 # calc factorial
-def Factorial(n):
-    if not isinstance(n, int) or n < 0 :
+
+
+def factorial(n):
+    if not isinstance(n, int) or n < 0:
         print("Sencond parameter must be an positive integer number")
         return None
 
@@ -12,52 +14,63 @@ def Factorial(n):
         result *= i
     return result
 
+
+warn = "First parameter must be a radian"
 # estimate Sin(x) function
-def est_Sin(x,n):
+
+
+def est_sin(x, n):
     if not isinstance(x, float):
-        print("First parameter must be a radian")
+        print(warn)
         return None
 
     result = 0
     for i in range(n):
-        result += ((-1) ** i) * (x ** (2 * i + 1)) / Factorial(2 * i + 1)
+        result += ((-1) ** i) * (x ** (2 * i + 1)) / factorial(2 * i + 1)
     return result
 
 # estimate Cos(x) function
-def est_Cos(x,n):
+
+
+def est_cos(x, n):
     if not isinstance(x, float):
-        print("First parameter must be a radian")
+        print(warn)
         return None
 
     result = 0
     for i in range(n):
-        result += ((-1) ** i) * (x ** (2 * i)) / Factorial(2 * i)
+        result += ((-1) ** i) * (x ** (2 * i)) / factorial(2 * i)
     return result
 
 # estimate Sinh(x) function
-def est_Sinh(x,n):
+
+
+def est_sinh(x, n):
     if not isinstance(x, float):
-        print("First parameter must be a radian")
+        print(warn)
         return None
 
     result = 0
     for i in range(n):
-        result += (x ** (2 * i + 1)) / Factorial(2 * i + 1)
+        result += (x ** (2 * i + 1)) / factorial(2 * i + 1)
     return result
 
 # estimate Cosh(x) function
-def est_Cosh(x,n):
+
+
+def est_cosh(x, n):
     if not isinstance(x, float):
-        print("First parameter must be a radian")
+        print(warn)
         return None
 
     result = 0
     for i in range(n):
-        result += (x ** (2 * i)) / Factorial(2 * i)
+        result += (x ** (2 * i)) / factorial(2 * i)
     return result
 
+
 # RunExample
-print(est_Sin(math.pi/2, 10))
-print(est_Cos(math.pi/2, 10))
-print(est_Sinh(math.pi, 10))
-print(est_Cosh(math.pi, 10))
+print(est_sin(math.pi/2, 10))
+print(est_cos(math.pi/2, 10))
+print(est_sinh(math.pi, 10))
+print(est_cosh(math.pi, 10))
